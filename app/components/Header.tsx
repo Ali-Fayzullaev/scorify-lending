@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, Shield, Zap, CreditCard, Phone, Mail, MessageSquare, Home, BarChart3, Calculator, HelpCircle, Users, Sparkles, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,7 +68,7 @@ export default function Header() {
             : "bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className=" mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <motion.div
@@ -77,16 +78,12 @@ export default function Header() {
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg blur-md opacity-60 group-hover:opacity-80 transition-opacity" />
-                <div className="relative w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-lg">
-                  <Shield className="w-6 h-6 text-white" />
-                </div>
+                <Image src="/logo.png" alt="ScoriFy" className=" rounded-full" width={45} height={45} />
               </div>
               <div className="hidden sm:block">
                 <div className="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                   ScoriFy
                 </div>
-                <div className="text-xs text-slate-500 font-medium">.kz</div>
               </div>
             </motion.div>
 
@@ -215,9 +212,9 @@ export default function Header() {
                     <motion.div
                       animate={{ rotate: 360 }}
                       transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                      className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center"
+                      className="w-10 h-10 flex items-center justify-center"
                     >
-                      <Shield className="w-6 h-6 text-white" />
+                      <Image src="/logo.png" alt="ScoriFy" className=" rounded-full" width={45} height={45} />
                     </motion.div>
                     <div>
                       <div className="text-xl font-bold text-slate-900">ScoriFy</div>
