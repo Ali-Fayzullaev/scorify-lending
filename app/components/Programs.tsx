@@ -488,13 +488,13 @@ export default function Programs() {
                             <div className="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden">
                               <motion.div
                                 initial={{ width: 0 }}
-                                animate={{ width: `${Math.random() * 40 + 60}%` }}
+                                animate={{ width: `${[85, 72, 96, 64][index] || 80}%` }}
                                 transition={{ duration: 1, delay: 0.5 }}
                                 className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"
                               />
                             </div>
                             <div className="text-xs text-slate-500">
-                              {Math.floor(Math.random() * 40 + 60)}% совпадение
+                              {[85, 72, 96, 64][index] || 80}% совпадение
                             </div>
                           </div>
                         </Card>
