@@ -1,13 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Play, CheckCircle } from "lucide-react";
+import { ArrowRight, Play, CheckCircle, Zap, Shield, BarChart3, TrendingUp, Clock, Database, Target, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 export default function Hero() {
   const handleCTAClick = () => {
-    // Google Analytics event tracking
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'click', {
         event_category: 'CTA',
@@ -22,199 +21,303 @@ export default function Hero() {
   };
 
   const stats = [
-    { number: "2", label: "минуты на полный скоринг", suffix: "" },
-    { number: "5", label: "государственных источников", suffix: "" },
-    { number: "50", label: "ипотечных программ", suffix: "+" }
+    { number: "2", label: "минуты на скоринг", suffix: "", icon: <Clock className="w-5 h-5" /> },
+    { number: "5", label: "источников данных", suffix: "", icon: <Database className="w-5 h-5" /> },
+    { number: "50", label: "ипотечных программ", suffix: "+", icon: <BarChart3 className="w-5 h-5" /> },
+    { number: "500", label: "тенге за проверку", suffix: " ₸", icon: <TrendingUp className="w-5 h-5" /> }
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 flex items-center justify-center overflow-hidden">
-      {/* Background Elements */}
+    <section id="hero" className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30 flex items-center justify-center overflow-hidden">
+      {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.1, scale: 1 }}
-          transition={{ duration: 2 }}
-          className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500 rounded-full blur-3xl"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 0.15, scale: 1 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="absolute top-1/4 -right-32 w-96 h-96 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full blur-3xl"
         />
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 0.1, scale: 1 }}
-          transition={{ duration: 2, delay: 0.5 }}
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"
+          transition={{ duration: 2, delay: 0.3, ease: "easeOut" }}
+          className="absolute bottom-1/4 -left-32 w-96 h-96 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full blur-3xl"
         />
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,black,transparent)]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column - Content */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left Column */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-center lg:text-left"
           >
-            {/* Badge */}
+            {/* Premium Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-sm font-medium text-blue-700 mb-6"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 rounded-full text-sm font-medium text-blue-700 mb-8 shadow-sm"
             >
-              <CheckCircle className="w-4 h-4 mr-2" />
-              5 бесплатных скорингов для новых пользователей
+              <Sparkles className="w-4 h-4" />
+              <span>Первые 5 скорингов — бесплатно</span>
             </motion.div>
 
-            {/* Main Heading */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+            {/* Main Headline */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6"
             >
-              Полный скоринг клиента
-              <span className="block text-blue-600 mt-2">
-                за 2 минуты
-              </span>
-            </motion.h1>
-
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg sm:text-xl text-slate-600 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0"
-            >
-              Проверяем по <strong>5 государственным базам</strong> + подбираем подходящие ипотечные программы из <strong>50+ предложений</strong> банков Казахстана
-            </motion.p>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+                <span className="block text-slate-900 leading-[1.1]">
+                  Полный скоринг
+                </span>
+                <span className="block bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent leading-[1.1] mt-2">
+                  за 2 минуты
+                </span>
+              </h1>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-xl text-slate-600 leading-relaxed mb-10 max-w-2xl mx-auto lg:mx-0"
+              >
+                Комплексная проверка по <span className="font-semibold text-blue-600">5 государственным базам</span> и автоматический подбор <span className="font-semibold text-emerald-600">50+ ипотечных программ</span> банков Казахстана
+              </motion.p>
+            </motion.div>
 
             {/* CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
             >
               <Button 
                 onClick={handleCTAClick}
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                className="group relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-6 text-lg font-semibold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
-                Попробовать бесплатно
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "100%" }}
+                  transition={{ duration: 0.6 }}
+                />
+                <span className="relative flex items-center justify-center">
+                  Начать бесплатно
+                  <ArrowRight className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" />
+                </span>
               </Button>
               
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-2 border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-4 text-lg font-semibold rounded-xl transition-all duration-300"
+                className="group border-2 border-slate-300 hover:border-blue-400 text-slate-700 hover:text-blue-700 hover:bg-blue-50 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300"
               >
-                <Play className="w-5 h-5 mr-2" />
+                <Play className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
                 Смотреть демо
               </Button>
             </motion.div>
 
-            {/* Trust Indicators */}
+            {/* Stats Grid */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="grid grid-cols-3 gap-6 sm:gap-8"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-6"
             >
               {stats.map((stat, index) => (
-                <div key={index} className="text-center lg:text-left">
-                  <div className="text-2xl sm:text-3xl font-bold text-blue-600">
-                    <motion.span
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 1, delay: 0.8 + index * 0.1 }}
-                    >
-                      {stat.number}{stat.suffix}
-                    </motion.span>
-                  </div>
-                  <div className="text-sm text-slate-600 font-medium mt-1">
-                    {stat.label}
-                  </div>
-                </div>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
+                  whileHover={{ y: -5, scale: 1.05 }}
+                  className="group"
+                >
+                  <Card className="relative bg-white/80 backdrop-blur-sm border border-slate-200/50 hover:border-blue-300 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-gradient-to-br from-blue-50 to-blue-100 text-blue-600 group-hover:scale-110 transition-transform">
+                        {stat.icon}
+                      </div>
+                      <div className="text-left">
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                            {stat.number}
+                          </span>
+                          <span className="text-xl font-bold text-slate-900">{stat.suffix}</span>
+                        </div>
+                        <div className="text-xs text-slate-600 font-medium mt-1 leading-tight">
+                          {stat.label}
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
               ))}
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Visual */}
+          {/* Right Column */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
             className="relative"
           >
-            {/* Main Dashboard Card */}
-            <Card className="bg-white/80 backdrop-blur-sm shadow-2xl border border-white/20 rounded-2xl overflow-hidden">
-              <div className="p-6 sm:p-8">
-                {/* Dashboard Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            {/* Main Dashboard */}
+            <Card className="relative bg-gradient-to-br from-white to-blue-50/50 backdrop-blur-sm shadow-2xl border border-white/40 rounded-2xl overflow-hidden">
+              {/* Dashboard Header */}
+              <div className="bg-gradient-to-r from-slate-900 to-slate-800 px-6 py-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-1">
+                    <div className="w-2 h-2 bg-red-400 rounded-full" />
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full" />
+                    <div className="w-2 h-2 bg-green-400 rounded-full" />
                   </div>
-                  <span className="text-sm text-slate-500 font-medium">ScoriFy Dashboard</span>
+                  <Shield className="w-5 h-5 text-blue-400" />
+                  <span className="text-sm font-medium text-slate-300">ScoriFy Dashboard</span>
                 </div>
+                <div className="text-xs text-slate-400">Режим: Live</div>
+              </div>
 
-                {/* Client Info */}
+              <div className="p-6">
+                {/* Client Card */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                  className="bg-slate-50 rounded-xl p-4 mb-6"
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className="mb-8"
                 >
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="font-semibold text-slate-900">Иванов Иван Иванович</h4>
-                      <p className="text-sm text-slate-500">ИИН: 123456789012</p>
+                  <Card className="bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-100 rounded-xl p-5 shadow-sm">
+                    <div className="flex items-center justify-between mb-4">
+                      <div>
+                        <h3 className="font-bold text-slate-900 text-lg">Иванов Иван Иванович</h3>
+                        <p className="text-sm text-slate-500">ИИН: 123456789012</p>
+                      </div>
+                      <div className="flex flex-col items-end">
+                        <motion.span
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ delay: 1, type: "spring" }}
+                          className="inline-flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs font-bold rounded-full"
+                        >
+                          <CheckCircle className="w-3 h-3" />
+                          Одобрен
+                        </motion.span>
+                        <span className="text-xs text-slate-400 mt-1">Кредитный рейтинг: 780</span>
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <span className="inline-flex items-center px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-                        Одобрен
-                      </span>
+                    
+                    <div className="grid grid-cols-3 gap-4">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-600">25M</div>
+                        <div className="text-xs text-slate-500">Доход</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-emerald-600">✓</div>
+                        <div className="text-xs text-slate-500">ПКБ проверен</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-amber-600">8</div>
+                        <div className="text-xs text-slate-500">Программы</div>
+                      </div>
                     </div>
-                  </div>
+                  </Card>
                 </motion.div>
 
-                {/* Sources Status */}
-                <div className="space-y-3">
-                  {["ПКБ (Кредитная история)", "ЕНПФ (Доходы)", "ГКБ (Долги)", "ЧСИ (Суд. производства)", "БМГ (Верификация телефона)"].map((source, index) => (
+                {/* Sources Progress */}
+                <div className="space-y-4">
+                  <h4 className="font-semibold text-slate-900 flex items-center gap-2">
+                    <Target className="w-4 h-4 text-blue-500" />
+                    Проверка источников
+                  </h4>
+                  
+                  {[
+                    { name: "ПКБ", desc: "Кредитная история", progress: 100, color: "bg-emerald-500" },
+                    { name: "ЕНПФ", desc: "Доходы и стаж", progress: 100, color: "bg-blue-500" },
+                    { name: "ГКБ", desc: "Долги и банкротство", progress: 95, color: "bg-cyan-500" },
+                    { name: "ЧСИ", desc: "Судебные производства", progress: 100, color: "bg-indigo-500" },
+                    { name: "БМГ", desc: "Верификация телефона", progress: 100, color: "bg-purple-500" }
+                  ].map((source, index) => (
                     <motion.div
-                      key={source}
+                      key={source.name}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                      className="flex items-center justify-between py-2"
+                      transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
+                      className="space-y-2"
                     >
-                      <span className="text-sm text-slate-700 font-medium">{source}</span>
-                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className={`w-2 h-2 rounded-full ${source.color}`} />
+                          <span className="font-medium text-slate-800">{source.name}</span>
+                          <span className="text-sm text-slate-500">{source.desc}</span>
+                        </div>
+                        <CheckCircle className="w-4 h-4 text-emerald-500" />
+                      </div>
+                      <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: `${source.progress}%` }}
+                          transition={{ duration: 1, delay: 1.4 + index * 0.1 }}
+                          className={`h-full ${source.color} rounded-full`}
+                        />
+                      </div>
                     </motion.div>
                   ))}
                 </div>
+
+                {/* Results Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 1.8, type: "spring" }}
+                  className="mt-8 pt-6 border-t border-slate-200"
+                >
+                  <div className="flex items-center justify-between bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-4">
+                    <div className="flex items-center gap-3">
+                      <Zap className="w-5 h-5 text-amber-500" />
+                      <div>
+                        <div className="font-bold text-slate-900">Результат готов</div>
+                        <div className="text-sm text-slate-500">Подобрано 8 ипотечных программ</div>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-bold text-blue-600">1:42</div>
+                      <div className="text-xs text-slate-500">минуты</div>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </Card>
 
-            {/* Floating Elements */}
+            {/* Floating Badges */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              initial={{ opacity: 0, scale: 0.5, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="absolute -top-6 -left-6 bg-blue-600 text-white px-4 py-2 rounded-xl shadow-lg text-sm font-semibold"
+              transition={{ duration: 0.6, delay: 1.2, type: "spring" }}
+              className="absolute -top-4 -left-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-5 py-2.5 rounded-xl shadow-xl text-sm font-bold flex items-center gap-2"
             >
-              ⚡ Результат за 2 мин
+              <Zap className="w-4 h-4" />
+              Результат за 2 минуты
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              initial={{ opacity: 0, scale: 0.5, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-              className="absolute -bottom-6 -right-6 bg-emerald-500 text-white px-4 py-2 rounded-xl shadow-lg text-sm font-semibold"
+              transition={{ duration: 0.6, delay: 1.4, type: "spring" }}
+              className="absolute -bottom-4 -right-4 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-5 py-2.5 rounded-xl shadow-xl text-sm font-bold flex items-center gap-2"
             >
-              ✓ Программы подобраны
+              <CheckCircle className="w-4 h-4" />
+              5 баз проверено
             </motion.div>
           </motion.div>
         </div>
@@ -222,19 +325,21 @@ export default function Hero() {
 
       {/* Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1.5 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 2 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-slate-300 rounded-full flex justify-center"
+          animate={{ y: [0, 12, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-2"
         >
-          <div className="w-1 h-3 bg-slate-400 rounded-full mt-2" />
+          <div className="text-sm text-slate-500 font-medium">Узнайте больше</div>
+          <div className="w-6 h-10 border-2 border-slate-300 rounded-full flex justify-center">
+            <div className="w-1.5 h-3 bg-gradient-to-b from-blue-500 to-cyan-400 rounded-full mt-2" />
+          </div>
         </motion.div>
-        <p className="text-sm text-slate-500 mt-2 text-center">Скролльте вниз</p>
       </motion.div>
     </section>
   );
