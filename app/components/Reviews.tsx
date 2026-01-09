@@ -70,7 +70,7 @@ export default function Reviews() {
   ];
 
   const stats = [
-    { icon: Users, value: "500+", label: "довольных брокеров", color: "text-blue-600" },
+    { icon: Users, value: "50+", label: "довольных брокеров", color: "text-blue-600" },
     { icon: Star, value: "4.9/5", label: "средний рейтинг", color: "text-amber-600" },
     { icon: ThumbsUp, value: "98%", label: "рекомендуют коллегам", color: "text-green-600" },
     { icon: Award, value: "24/7", label: "поддержка пользователей", color: "text-purple-600" }

@@ -30,7 +30,7 @@ export default function Footer() {
   ];
 
   const quickStats = [
-    { icon: Users, value: "500+", label: "активных брокеров", color: "text-blue-400" },
+    { icon: Users, value: "50+", label: "активных брокеров", color: "text-blue-400" },
     { icon: Zap, value: "2 мин", label: "среднее время скоринга", color: "text-emerald-400" },
     { icon: Clock, value: "24/7", label: "доступность системы", color: "text-amber-400" },
     { icon: Shield, value: "100%", label: "законность проверки", color: "text-purple-400" }

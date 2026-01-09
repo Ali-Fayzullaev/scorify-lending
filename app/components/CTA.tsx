@@ -32,7 +32,7 @@ export default function CTA() {
     {
       icon: Users,
       title: "Комьюнити экспертов",
-      description: "500+ брокеров с нами",
+      description: "50+ брокеров с нами",
       gradient: "from-indigo-500 to-purple-500"
     }
   ];

@@ -11,27 +11,38 @@ export default function Sources() {
   const [mobileSlide, setMobileSlide] = useState<number>(0);
 
   const sources = [
+     {
+      id: "chsi",
+      icon: Scale,
+      title: "ЧСИ",
+      subtitle: "Частные Судебные Исполнители",
+      description: "Исполнительные производства",
+      features: ["Производства", "Должники ЧСИ", "Взыскания", "Исп. листы", "История"],
+      color: "red",
+      gradient: "from-red-500 to-rose-500",
+      stats: ["0", "Нет", "Чисто"]
+    },
+     {
+      id: "bmg",
+      icon: Smartphone,
+      title: "БМГ",
+      subtitle: "База Мобильных Граждан",
+      description: "Верификация номера телефона",
+      features: ["Подтверждение", "Telegram", "Контакты", "Мессенджеры", "Активность"],
+      color: "indigo",
+      gradient: "from-indigo-500 to-blue-500",
+      stats: ["✓", "Привязан", "Активен"]
+    },
     {
       id: "pkb",
       icon: BarChart3,
       title: "ПКБ",
       subtitle: "Первое Кредитное Бюро",
       description: "Полная кредитная история клиента",
-      features: ["Активные кредиты", "Просрочки", "Скоринговый балл", "Микрозаймы", "Общий долг"],
+      features: ["Производства", "Должники ЧСИ", "Взыскания", "Исп. листы", "История"],
       color: "blue",
       gradient: "from-blue-500 to-cyan-500",
       stats: ["780", "4", "25M"]
-    },
-    {
-      id: "enpf",
-      icon: DollarSign,
-      title: "ЕНПФ",
-      subtitle: "Единый Накопительный Пенсионный Фонд",
-      description: "Реальные доходы на основе отчислений",
-      features: ["Зарплата", "Стаж работы", "Трудоустройство", "Динамика доходов", "Налоги"],
-      color: "green",
-      gradient: "from-green-500 to-emerald-500",
-      stats: ["12 лет", "₸", "Стабильный"]
     },
     {
       id: "gkb",
@@ -44,28 +55,19 @@ export default function Sources() {
       gradient: "from-purple-500 to-violet-500",
       stats: ["Нет", "0 ₸", "Чистый"]
     },
+    
     {
-      id: "chsi",
-      icon: Scale,
-      title: "ЧСИ",
-      subtitle: "Частные Судебные Исполнители",
-      description: "Исполнительные производства",
-      features: ["Производства", "Должники ЧСИ", "Взыскания", "Исп. листы", "История"],
-      color: "red",
-      gradient: "from-red-500 to-rose-500",
-      stats: ["0", "Нет", "Чисто"]
+      id: "enpf",
+      icon: DollarSign,
+      title: "ЕНПФ",
+      subtitle: "Единый Накопительный Пенсионный Фонд",
+      description: "Реальные доходы на основе отчислений",
+      features: ["Зарплата", "Стаж работы", "Трудоустройство", "Динамика доходов", "Налоги"],
+      color: "green",
+      gradient: "from-green-500 to-emerald-500",
+      stats: ["12 лет", "₸", "Стабильный"]
     },
-    {
-      id: "bmg",
-      icon: Smartphone,
-      title: "БМГ",
-      subtitle: "База Мобильных Граждан",
-      description: "Верификация номера телефона",
-      features: ["Подтверждение", "Telegram", "Контакты", "Мессенджеры", "Активность"],
-      color: "indigo",
-      gradient: "from-indigo-500 to-blue-500",
-      stats: ["✓", "Привязан", "Активен"]
-    }
+   
   ];
 
   const nextMobileSlide = () => {

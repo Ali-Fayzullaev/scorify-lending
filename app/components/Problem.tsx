@@ -54,7 +54,7 @@ export default function Problem() {
     {
       icon: BarChart3,
       title: "Полный скоринг из 5 источников",
-      description: "ПКБ + ЕНПФ + ГКБ + ЧСИ + БМГ в едином отчете",
+      description: "ЧСИ + БМГ + ПКБ + ГКБ + ЕНПФ в едином отчете",
       color: "text-green-500"
     }
   ];
@@ -103,7 +103,7 @@ export default function Problem() {
           </motion.div>
           
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-            До <span className="text-red-500">ScoriFy</span> vs <span className="text-green-500">С</span> ScoriFy
+            Без <span className="text-red-500">ScoriFy</span> vs <span className="text-green-500">С</span> ScoriFy
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Узнайте как мы превращаем сложные процессы в простые решения
@@ -184,7 +184,7 @@ export default function Problem() {
                 className="mt-6"
               >
                 <div className="bg-gradient-to-r from-red-500 to-red-600 text-white rounded-2xl p-6 text-center shadow-lg">
-                  <div className="text-4xl font-bold mb-2">~30 минут</div>
+                  <div className="text-4xl font-bold mb-2">~60 минут</div>
                   <div className="text-red-100 text-sm font-medium">на одного клиента</div>
                   <div className="text-red-200 text-xs mt-2">+ нервы + риски</div>
                 </div>
@@ -290,7 +290,7 @@ export default function Problem() {
                   Экономия времени
                 </div>
                 <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">
-                  <span className="text-blue-600">28 минут</span> экономии на клиенте
+                  <span className="text-blue-600">58 минут</span> экономии на клиенте
                 </h3>
                 <p className="text-slate-600 max-w-2xl mx-auto">
                   Переведите эти минуты в дополнительные сделки и доход

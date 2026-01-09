@@ -81,8 +81,8 @@ export default function Benefits() {
   ];
 
   const stats = [
-    { value: "500+", label: "активных брокеров" },
-    { value: "10,000+", label: "выполненных скорингов" },
+    { value: "50+", label: "активных брокеров" },
+    { value: "10,00+", label: "выполненных скорингов" },
     { value: "93%", label: "экономии времени" },
     { value: "15×", label: "больше клиентов" }
   ];

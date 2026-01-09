@@ -242,11 +242,11 @@ export default function Hero() {
                   </h4>
                   
                   {[
-                    { name: "ПКБ", desc: "Кредитная история", progress: 100, color: "bg-emerald-500" },
-                    { name: "ЕНПФ", desc: "Доходы и стаж", progress: 100, color: "bg-blue-500" },
-                    { name: "ГКБ", desc: "Долги и банкротство", progress: 95, color: "bg-cyan-500" },
                     { name: "ЧСИ", desc: "Судебные производства", progress: 100, color: "bg-indigo-500" },
-                    { name: "БМГ", desc: "Верификация телефона", progress: 100, color: "bg-purple-500" }
+                    { name: "БМГ", desc: "Верификация телефона", progress: 100, color: "bg-purple-500" },
+                    { name: "ПКБ", desc: "Кредитная история", progress: 100, color: "bg-emerald-500" },
+                    { name: "ГКБ", desc: "Долги и банкротство", progress: 95, color: "bg-cyan-500" },
+                    { name: "ЕНПФ", desc: "Доходы и стаж", progress: 100, color: "bg-blue-500" },
                   ].map((source, index) => (
                     <motion.div
                       key={source.name}
