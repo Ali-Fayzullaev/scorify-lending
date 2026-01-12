@@ -235,23 +235,23 @@ export default function Sources() {
         </div>
 
         {/* Desktop Grid (Visible on desktop only) */}
-        <div className="hidden lg:block mb-20">
-          <div className="grid grid-cols-3 gap-6">
-            {sources.slice(0, 3).map((source, index) => {
+        <div className="hidden lg:block mb-16">
+          <div className="grid grid-cols-5 gap-4">
+            {sources.map((source, index) => {
               const IconComponent = source.icon;
               const isActive = activeSource === source.id;
               
               return (
                 <motion.div
                   key={source.id}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
                   className="group"
                 >
                   <Card 
-                    className="relative bg-gradient-to-b from-white to-slate-50 border border-slate-200/50 hover:border-blue-300 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-full"
+                    className="relative bg-gradient-to-b from-white to-slate-50 border border-slate-200/50 hover:border-blue-300 rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer h-full"
                     onMouseEnter={() => setActiveSource(source.id)}
                     onMouseLeave={() => setActiveSource(null)}
                   >
@@ -260,9 +260,9 @@ export default function Sources() {
                       initial={false}
                       animate={{ 
                         opacity: isActive ? 0.1 : 0,
-                        scale: isActive ? 1.05 : 1
+                        scale: isActive ? 1.02 : 1
                       }}
-                      className={`absolute inset-0 bg-gradient-to-r ${source.gradient} rounded-2xl blur-xl`}
+                      className={`absolute inset-0 bg-gradient-to-r ${source.gradient} rounded-xl blur-lg`}
                     />
                     
                     <div className="relative z-10">
@@ -270,113 +270,49 @@ export default function Sources() {
                       <motion.div
                         animate={{ rotate: isActive ? 360 : 0 }}
                         transition={{ duration: 0.6 }}
-                        className={`w-16 h-16 bg-gradient-to-r ${source.gradient} rounded-2xl flex items-center justify-center mb-4 shadow-lg`}
+                        className={`w-10 h-10 bg-gradient-to-r ${source.gradient} rounded-lg flex items-center justify-center mb-3 shadow-md group-hover:scale-110 transition-transform`}
                       >
-                        <IconComponent className="w-8 h-8 text-white" />
+                        <IconComponent className="w-5 h-5 text-white" />
                       </motion.div>
 
                       {/* Title */}
-                      <div className="mb-4">
-                        <div className="flex items-baseline gap-2 mb-1">
-                          <h3 className="text-2xl font-bold text-slate-900">{source.title}</h3>
-                          <span className="text-sm text-slate-500">({source.subtitle})</span>
-                        </div>
-                        <p className="text-slate-600 text-sm leading-relaxed">
-                          {source.description}
+                      <div className="mb-2">
+                        <h3 className="text-lg font-bold text-slate-900">{source.title}</h3>
+                        <p className="text-slate-500 text-[10px] leading-tight">
+                          {source.subtitle}
                         </p>
                       </div>
 
+                      {/* Description */}
+                      <p className="text-slate-600 text-xs mb-3 leading-relaxed line-clamp-2">
+                        {source.description}
+                      </p>
+
                       {/* Quick Stats */}
-                      <div className="grid grid-cols-3 gap-2 mb-4">
-                        {source.stats.map((stat, idx) => (
-                          <div key={idx} className="text-center">
-                            <div className="text-sm font-bold text-slate-900">{stat}</div>
-                          </div>
+                      <div className="flex flex-wrap gap-1 mb-2">
+                        {source.stats.slice(0, 2).map((stat, idx) => (
+                          <span key={idx} className="px-1.5 py-0.5 bg-slate-100 rounded text-[10px] font-medium text-slate-600">
+                            {stat}
+                          </span>
                         ))}
                       </div>
 
                       {/* Features */}
-                      <div className="space-y-2">
-                        {source.features.slice(0, 3).map((feature, idx) => (
+                      <div className="space-y-1">
+                        {source.features.slice(0, 2).map((feature, idx) => (
                           <motion.div
                             key={idx}
                             initial={false}
                             animate={{ 
-                              x: isActive ? 5 : 0,
-                              opacity: isActive ? 1 : 0.8 
+                              x: isActive ? 3 : 0,
+                              opacity: isActive ? 1 : 0.7 
                             }}
-                            className="flex items-center gap-2"
+                            className="flex items-center gap-1.5"
                           >
                             <div className={`w-1 h-1 rounded-full bg-gradient-to-r ${source.gradient}`} />
-                            <span className="text-xs text-slate-600">{feature}</span>
+                            <span className="text-[10px] text-slate-500">{feature}</span>
                           </motion.div>
                         ))}
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Second Row for Remaining Sources */}
-          <div className="grid grid-cols-2 gap-6 mt-6 max-w-2xl mx-auto">
-            {sources.slice(3).map((source, index) => {
-              const IconComponent = source.icon;
-              const isActive = activeSource === source.id;
-              
-              return (
-                <motion.div
-                  key={source.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                  className="group"
-                >
-                  <Card 
-                    className="relative bg-gradient-to-b from-white to-slate-50 border border-slate-200/50 hover:border-blue-300 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer h-full"
-                    onMouseEnter={() => setActiveSource(source.id)}
-                    onMouseLeave={() => setActiveSource(null)}
-                  >
-                    {/* Background Glow */}
-                    <motion.div
-                      initial={false}
-                      animate={{ 
-                        opacity: isActive ? 0.1 : 0,
-                        scale: isActive ? 1.05 : 1
-                      }}
-                      className={`absolute inset-0 bg-gradient-to-r ${source.gradient} rounded-2xl blur-xl`}
-                    />
-                    
-                    <div className="relative z-10">
-                      <div className="flex items-start gap-4">
-                        <motion.div
-                          animate={{ rotate: isActive ? 360 : 0 }}
-                          transition={{ duration: 0.6 }}
-                          className={`w-12 h-12 bg-gradient-to-r ${source.gradient} rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg`}
-                        >
-                          <IconComponent className="w-6 h-6 text-white" />
-                        </motion.div>
-
-                        <div className="flex-1">
-                          <div className="flex items-baseline gap-2 mb-1">
-                            <h3 className="text-xl font-bold text-slate-900">{source.title}</h3>
-                            <span className="text-sm text-slate-500">({source.subtitle})</span>
-                          </div>
-                          <p className="text-slate-600 text-sm mb-3 leading-relaxed">
-                            {source.description}
-                          </p>
-                          
-                          {/* Quick Stats */}
-                          <div className="flex gap-3 mb-3">
-                            {source.stats.map((stat, idx) => (
-                              <div key={idx} className="px-2 py-1 bg-slate-50 rounded text-xs font-medium text-slate-700">
-                                {stat}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </Card>

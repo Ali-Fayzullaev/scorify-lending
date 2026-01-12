@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Play, CheckCircle, Zap, Shield, BarChart3, TrendingUp, Clock, Database, Target, Sparkles } from "lucide-react";
+import { ArrowRight, Play, CheckCircle, Zap, Shield, BarChart3, TrendingUp, Clock, Database, Target, Sparkles, Star, Building2, Percent } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 export default function Hero() {
   const handleCTAClick = () => {
@@ -25,6 +26,42 @@ export default function Hero() {
     { number: "5", label: "источников данных", suffix: "", icon: <Database className="w-5 h-5" /> },
     { number: "50", label: "ипотечных программ", suffix: "+", icon: <BarChart3 className="w-5 h-5" /> },
     { number: "500", label: "тенге за проверку", suffix: " ₸", icon: <TrendingUp className="w-5 h-5" /> }
+  ];
+
+  const approvedPrograms = [
+    { 
+      name: "7-20-25", 
+      bank: "Отбасы банк",
+      logo: "/banks/otbasy.png",
+      rate: "7%", 
+      period: "25 лет",
+      color: "from-emerald-500 to-green-500",
+      bgColor: "from-emerald-50 to-green-50",
+      borderColor: "border-emerald-200",
+      badge: "Лучшая ставка"
+    },
+    { 
+      name: "Баспана Хит", 
+      bank: "Отбасы банк",
+      logo: "/banks/otbasy.png",
+      rate: "8.5%", 
+      period: "25 лет",
+      color: "from-blue-500 to-cyan-500",
+      bgColor: "from-blue-50 to-cyan-50",
+      borderColor: "border-blue-200",
+      badge: "Популярная"
+    },
+    { 
+      name: "Ипотека 10-10-20", 
+      bank: "Halyk Bank",
+      logo: "/banks/halyk.png",
+      rate: "10%", 
+      period: "20 лет",
+      color: "from-amber-500 to-orange-500",
+      bgColor: "from-amber-50 to-orange-50",
+      borderColor: "border-amber-200",
+      badge: "Быстрое одобрение"
+    },
   ];
 
   return (
@@ -171,7 +208,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-            className="relative"
+            className="relative mt-5"
           >
             {/* Main Dashboard */}
             <Card className="relative bg-gradient-to-br from-white to-blue-50/50 backdrop-blur-sm shadow-2xl border border-white/40 rounded-2xl overflow-hidden">
@@ -275,25 +312,85 @@ export default function Hero() {
                   ))}
                 </div>
 
-                {/* Results Badge */}
+               
+                {/* Approved Programs Section */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1.8, type: "spring" }}
-                  className="mt-8 pt-6 border-t border-slate-200"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 2 }}
+                  className="mt-6 space-y-3"
                 >
-                  <div className="flex items-center justify-between bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-4">
-                    <div className="flex items-center gap-3">
-                      <Zap className="w-5 h-5 text-amber-500" />
-                      <div>
-                        <div className="font-bold text-slate-900">Результат готов</div>
-                        <div className="text-sm text-slate-500">Подобрано 8 ипотечных программ</div>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-2xl font-bold text-blue-600">1:42</div>
-                      <div className="text-xs text-slate-500">минуты</div>
-                    </div>
+                  {/* Header with celebration */}
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-semibold text-slate-900 flex items-center gap-2">
+                      <motion.div
+                        animate={{ rotate: [0, 10, -10, 0] }}
+                        transition={{ duration: 0.5, delay: 2.2, repeat: 2 }}
+                      >
+                        <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                      </motion.div>
+                      Вам одобрено
+                    </h4>
+                    <motion.span
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 2.1, type: "spring" }}
+                      className="px-3 py-1 bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs font-bold rounded-full"
+                    >
+                      топ 3 программы
+                    </motion.span>
+                  </div>
+
+                  {/* Program Cards */}
+                  <div className="space-y-2">
+                    {approvedPrograms.map((program, index) => (
+                      <motion.div
+                        key={program.name}
+                        initial={{ opacity: 0, x: -20, scale: 0.95 }}
+                        animate={{ opacity: 1, x: 0, scale: 1 }}
+                        transition={{ duration: 0.4, delay: 2.2 + index * 0.15, type: "spring" }}
+                        whileHover={{ scale: 1.02, x: 5 }}
+                        className="group cursor-pointer"
+                      >
+                        <div className={`relative overflow-hidden bg-gradient-to-r ${program.bgColor} border ${program.borderColor} rounded-xl p-3 shadow-sm hover:shadow-md transition-all duration-300`}>
+                          {/* Badge */}
+                          <div className="absolute top-2 right-2">
+                            <span className={`px-2 py-0.5 bg-gradient-to-r ${program.color} text-white text-[10px] font-bold rounded-full`}>
+                              {program.badge}
+                            </span>
+                          </div>
+                          
+                          <div className="flex items-center gap-3">
+                            {/* Logo */}
+                            <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                              <Image src={program.logo} alt={program.bank} width={40} height={40} />
+                            </div>
+                            
+                            {/* Info */}
+                            <div className="flex-1 min-w-0">
+                              <div className="font-bold text-slate-900 text-sm">{program.name}</div>
+                              <div className="text-xs text-slate-500">{program.bank}</div>
+                            </div>
+                            
+                            {/* Rate */}
+                            <div className="text-right">
+                              <div className={`text-xl font-bold bg-gradient-to-r ${program.color} bg-clip-text text-transparent`}>
+                                {program.rate}
+                              </div>
+                              <div className="text-[10px] text-slate-500">{program.period}</div>
+                            </div>
+                          </div>
+                          
+                          {/* Progress bar decoration */}
+                          <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: "100%" }}
+                            transition={{ duration: 0.8, delay: 2.4 + index * 0.15 }}
+                            className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r ${program.color}`}
+                          />
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
                 </motion.div>
               </div>
@@ -309,38 +406,9 @@ export default function Hero() {
               <Zap className="w-4 h-4" />
               Результат за 2 минуты
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.4, type: "spring" }}
-              className="absolute -bottom-4 -right-4 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-5 py-2.5 rounded-xl shadow-xl text-sm font-bold flex items-center gap-2"
-            >
-              <CheckCircle className="w-4 h-4" />
-              5 баз проверено
-            </motion.div>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block"
-      >
-        <motion.div
-          animate={{ y: [0, 12, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2"
-        >
-          <div className="text-sm text-slate-500 font-medium">Узнайте больше</div>
-          <div className="w-6 h-10 border-2 border-slate-300 rounded-full flex justify-center">
-            <div className="w-1.5 h-3 bg-gradient-to-b from-blue-500 to-cyan-400 rounded-full mt-2" />
-          </div>
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

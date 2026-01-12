@@ -1,3 +1,4 @@
+// File: app/components/Header.tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -81,14 +82,11 @@ export default function Header() {
                 <Image src="/logo.png" alt="ScoriFy" className=" rounded-full" width={45} height={45} />
               </div>
               <div className="hidden sm:block">
-                <div className="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                  ScoriFy
-                </div>
               </div>
             </motion.div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-1">
+            <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
               {navigationItems.map((item) => {
                 const isActive = activeSection === item.href.replace("#", "");
                 const IconComponent = item.icon;
@@ -98,17 +96,17 @@ export default function Header() {
                     onClick={() => scrollToSection(item.href)}
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="relative px-4 py-2 rounded-lg transition-all duration-200 group"
+                    className="relative px-2 xl:px-3 py-2 rounded-lg transition-all duration-200 group"
                   >
-                    <div className="flex items-center space-x-2">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
+                    <div className="flex items-center space-x-1.5 xl:space-x-2">
+                      <div className={`hidden xl:flex w-7 h-7 rounded-lg items-center justify-center transition-all ${
                         isActive 
                           ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-md" 
                           : "bg-slate-100 text-slate-600 group-hover:bg-blue-50 group-hover:text-blue-600"
                       }`}>
-                        <IconComponent className="w-4 h-4" />
+                        <IconComponent className="w-3.5 h-3.5" />
                       </div>
-                      <span className={`font-medium transition-colors ${
+                      <span className={`text-sm font-medium transition-colors whitespace-nowrap ${
                         isActive 
                           ? "text-blue-600" 
                           : "text-slate-700 group-hover:text-slate-900"
@@ -120,7 +118,7 @@ export default function Header() {
                     {isActive && (
                       <motion.div
                         layoutId="activeNavIndicator"
-                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"
+                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-5 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
                       />
@@ -216,10 +214,6 @@ export default function Header() {
                     >
                       <Image src="/logo.png" alt="ScoriFy" className=" rounded-full" width={45} height={45} />
                     </motion.div>
-                    <div>
-                      <div className="text-xl font-bold text-slate-900">ScoriFy</div>
-                      <div className="text-sm text-slate-500">Комплексный скоринг</div>
-                    </div>
                   </div>
                   <motion.button
                     onClick={() => setIsMobileMenuOpen(false)}

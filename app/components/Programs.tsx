@@ -1,3 +1,4 @@
+// app/components/Programs.tsx
 "use client";
 
 import { useState } from "react";
@@ -10,14 +11,17 @@ export default function Programs() {
   const [selectedFilter, setSelectedFilter] = useState<string>("all");
   const [selectedProgram, setSelectedProgram] = useState<number | null>(null);
 
+
+  const mainbank = [
+    { name: "Отбасы банк", logo: "/banks/otbasy.png" },
+  ]
+
   const banks = [
     { name: "Halyk Bank", logo: "/banks/halyk.png" },
-    { name: "Kaspi Bank", logo: "/banks/kaspi.png" },
     { name: "Forte Bank", logo: "/banks/forte.png" },
     { name: "БЦК", logo: "/banks/bck.png" },
     { name: "Евразийский банк", logo: "/banks/eurasian.png" },
     { name: "Нурбанк", logo: "/banks/nur.png" },
-    { name: "Отбасы банк", logo: "/banks/otbasy.png" },
     { name: "Freedom Bank", logo: "/banks/freedom.png" },
     { name: "RBK Bank", logo: "/banks/rbk.webp" },
     { name: "Алтын банк", logo: "/banks/altyn.png" }
@@ -201,10 +205,8 @@ export default function Programs() {
           
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
             <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              50+ программ
+            У нас собраны все ипотечный программы Казахстана
             </span>
-            <br />
-            <span className="text-slate-800">ипотечного кредитования</span>
           </h2>
           
           <motion.p
@@ -239,38 +241,98 @@ export default function Programs() {
                 </p>
               </div>
 
-              {/* Banks Grid with Logos */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                {banks.map((bank, index) => (
-                  <motion.div
-                    key={bank.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.05 }}
-                    whileHover={{ y: -5 }}
-                    className="group"
-                  >
-                    <Card className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50 border border-slate-200/50 hover:border-blue-300 rounded-2xl p-4 shadow-sm hover:shadow-md transition-all duration-300">
-                      <div className="flex flex-col items-center text-center">
-                        <div className="relative w-16 h-16 mb-3 rounded-xl bg-white flex items-center justify-center p-2 shadow-inner border border-slate-200 group-hover:scale-110 transition-transform">
-                          <div className="relative w-full h-full">
-                            <Image
-                              src={bank.logo}
-                              alt={bank.name}
-                              fill
-                              className="object-contain"
-                              sizes="64px"
-                            />
+              {/* Desktop: Two columns layout - Commercial banks left, Main bank right */}
+              <div className="flex flex-col lg:flex-row gap-8">
+                {/* Right Side - Main Bank (Отбасы банк) */}
+                <div className="lg:w-64 order-1 lg:order-2">
+                  <div className="flex items-center justify-center gap-2 mb-4">
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent to-green-300" />
+                    <span className="text-sm font-semibold text-green-600 px-3">Госбанк</span>
+                    <div className="h-px flex-1 bg-gradient-to-l from-transparent to-green-300" />
+                  </div>
+                  
+                  <div className="flex justify-center h-full">
+                    {mainbank.map((bank) => (
+                      <motion.div
+                        key={bank.name}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        whileHover={{ y: -5 }}
+                        className="group w-full"
+                      >
+                        <Card className="relative overflow-hidden bg-gradient-to-b from-green-50 to-emerald-50 border-2 border-green-300 hover:border-green-400 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-center">
+                          <div className="absolute top-2 right-2">
+                            <div className="px-2 py-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full">
+                              <span className="text-xs font-bold text-white">Госпрограммы</span>
+                            </div>
                           </div>
-                        </div>
-                        <span className="text-sm font-bold text-slate-800">
-                          {bank.name}
-                        </span>
-                      </div>
-                    </Card>
-                  </motion.div>
-                ))}
+                          <div className="flex flex-col items-center text-center pt-4">
+                            <div className="relative w-20 h-20 mb-4 rounded-xl bg-white flex items-center justify-center p-3 shadow-md border border-green-200 group-hover:scale-110 transition-transform">
+                              <div className="relative w-full h-full">
+                                <Image
+                                  src={bank.logo}
+                                  alt={bank.name}
+                                  fill
+                                  className="object-contain"
+                                  sizes="80px"
+                                />
+                              </div>
+                            </div>
+                            <span className="text-lg font-bold text-slate-800">
+                              {bank.name}
+                            </span>
+                            <span className="text-sm text-green-600 mt-1">
+                              7-20-25, Баспана Хит
+                            </span>
+                          </div>
+                        </Card>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+                {/* Left Side - Commercial Banks */}
+                <div className="lg:flex-1 order-2 lg:order-1">
+                  <div className="flex items-center justify-center gap-2 mb-4">
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent to-blue-300" />
+                    <span className="text-sm font-semibold text-blue-600 px-3">Коммерческие банки</span>
+                    <div className="h-px flex-1 bg-gradient-to-l from-transparent to-blue-300" />
+                  </div>
+                  
+                  <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-3">
+                    {banks.map((bank, index) => (
+                      <motion.div
+                        key={bank.name}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: index * 0.05 }}
+                        whileHover={{ y: -5 }}
+                        className="group"
+                      >
+                        <Card className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50 border border-slate-200/50 hover:border-blue-300 rounded-2xl p-3 shadow-sm hover:shadow-md transition-all duration-300">
+                          <div className="flex flex-col items-center text-center">
+                            <div className="relative w-14 h-14 mb-2 rounded-xl bg-white flex items-center justify-center p-2 shadow-inner border border-slate-200 group-hover:scale-110 transition-transform">
+                              <div className="relative w-full h-full">
+                                <Image
+                                  src={bank.logo}
+                                  alt={bank.name}
+                                  fill
+                                  className="object-contain"
+                                  sizes="56px"
+                                />
+                              </div>
+                            </div>
+                            <span className="text-xs font-bold text-slate-800">
+                              {bank.name}
+                            </span>
+                          </div>
+                        </Card>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               {/* Bank Count */}

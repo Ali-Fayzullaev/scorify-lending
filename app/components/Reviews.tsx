@@ -430,7 +430,7 @@ export default function Reviews() {
                       if (element) element.scrollIntoView({ behavior: "smooth" });
                     }}
                   >
-                    <span className="flex items-center justify-center gap-2">
+                    <span className="flex items-center justify-center gap-2 text-black">
                       <Quote className="w-5 h-5" />
                       Ответы на вопросы
                     </span>

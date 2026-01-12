@@ -31,7 +31,7 @@ export default function HowItWorks() {
     },
     {
       step: 3,
-      title: "Автоматический скоринг", 
+      title: "Автоматический скоринг на основе 5 отчетов", 
       description: "Система проверяет по 5 базам",
       details: "Полный отчёт по всем источникам данных",
       icon: Zap,
