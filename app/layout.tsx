@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     images: ["https://scorify.kz/og-image.jpg"],
   },
   verification: {
-    google: "your-google-site-verification-code",
+    google: "Dif8ORhksjpV-_9-DZ87cI3xDZrxvGf1IC1wfTqAQ9k",
     yandex: "your-yandex-verification-code",
   },
 };

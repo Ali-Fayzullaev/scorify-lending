@@ -9,12 +9,14 @@ declare global {
   }
 }
 
+const GA_MEASUREMENT_ID = 'G-NQ6PTJ2QN6'
+
 export function Analytics() {
   useEffect(() => {
     // Google Analytics 4 script
     const script1 = document.createElement('script')
     script1.async = true
-    script1.src = `https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID`
+    script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`
     document.head.appendChild(script1)
 
     const script2 = document.createElement('script')
@@ -22,7 +24,7 @@ export function Analytics() {
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
+      gtag('config', '${GA_MEASUREMENT_ID}');
     `
     document.head.appendChild(script2)
 
