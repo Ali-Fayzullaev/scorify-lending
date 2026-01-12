@@ -78,10 +78,14 @@ export default function Header() {
               className="flex items-center space-x-3 cursor-pointer group"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              <div className="relative">
-                <Image src="/logo.png" alt="ScoriFy" className=" rounded-full" width={45} height={45} />
+              <div className="relative flex-shrink-0">
+                <Image src="/logo_shar.png" alt="ScoriFy" className="rounded-full" width={45} height={45} />
               </div>
               <div className="hidden sm:block">
+                <span className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">ScoriFy</span>
+                <span className="block text-xs text-slate-500 group-hover:text-blue-500 transition-colors">
+                  Кредитный скоринг
+                </span>
               </div>
             </motion.div>
 
