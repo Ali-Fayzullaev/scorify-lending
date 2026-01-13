@@ -74,7 +74,7 @@ export default function Footer() {
             className="lg:col-span-2"
           >
             <div className="flex items-center gap-3 mb-6">
-              <Image src="/logo.png" alt="ScoriFy" className=" rounded-full" width={50} height={50} />
+              <Image src="/logo_shar.png" alt="ScoriFy" className=" rounded-full" width={50} height={50} />
             </div>
             
             <p className="text-slate-300 leading-relaxed mb-8 max-w-md">

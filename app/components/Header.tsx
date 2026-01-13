@@ -216,7 +216,7 @@ export default function Header() {
                       transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                       className="w-10 h-10 flex items-center justify-center"
                     >
-                      <Image src="/logo.png" alt="ScoriFy" className=" rounded-full" width={45} height={45} />
+                      <Image src="/logo_shar.png" alt="ScoriFy" className=" rounded-full" width={45} height={45} />
                     </motion.div>
                   </div>
                   <motion.button
