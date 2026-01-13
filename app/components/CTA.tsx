@@ -189,11 +189,7 @@ export default function CTA() {
               className="mt-4 text-white/60 text-sm"
             >
               <div className="flex flex-wrap justify-center items-center gap-4">
-                <span className="flex items-center gap-1">
-                  <Star className="w-4 h-4 text-amber-400" />
-                  Премиум доступ 14 дней
-                </span>
-                <span className="hidden sm:inline">•</span>
+                {/* <span className="hidden sm:inline">•</span> */}
                 <span>Персональный демо-тур</span>
                 <span className="hidden sm:inline">•</span>
                 <span>5 бесплатных проверок</span>

@@ -1,11 +1,177 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MessageCircle, Facebook, Instagram, Linkedin, MapPin, Shield, Users, Clock, Zap, ArrowUpRight, Building, FileText, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import Image from "next/image";
 
+// Контент для юридических документов
+const legalContent = {
+  privacy: {
+    title: "Политика конфиденциальности",
+    content: `
+      <h3>1. Общие положения</h3>
+      <p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей сервиса ScoriFy (далее — «Сервис»).</p>
+      <p>Используя Сервис, вы соглашаетесь с условиями данной Политики конфиденциальности.</p>
+      
+      <h3>2. Сбор информации</h3>
+      <p>Мы собираем следующие данные:</p>
+      <ul>
+        <li>ФИО и контактные данные</li>
+        <li>ИИН клиентов для проведения скоринга</li>
+        <li>Информация о кредитной истории</li>
+        <li>Технические данные (IP-адрес, тип браузера)</li>
+      </ul>
+      
+      <h3>3. Использование информации</h3>
+      <p>Собранная информация используется для:</p>
+      <ul>
+        <li>Предоставления услуг кредитного скоринга</li>
+        <li>Улучшения качества сервиса</li>
+        <li>Связи с пользователями</li>
+        <li>Соблюдения законодательных требований</li>
+      </ul>
+      
+      <h3>4. Защита данных</h3>
+      <p>Мы применяем современные методы защиты данных, включая шифрование SSL/TLS, двухфакторную аутентификацию и регулярное резервное копирование.</p>
+      
+      <h3>5. Права пользователей</h3>
+      <p>Вы имеете право:</p>
+      <ul>
+        <li>Получить доступ к своим данным</li>
+        <li>Исправить неточные данные</li>
+        <li>Удалить свои данные</li>
+        <li>Отозвать согласие на обработку</li>
+      </ul>
+      
+      <h3>6. Контакты</h3>
+      <p>По вопросам конфиденциальности: info@scorify.kz</p>
+    `
+  },
+  terms: {
+    title: "Пользовательское соглашение",
+    content: `
+      <h3>1. Предмет соглашения</h3>
+      <p>Настоящее Соглашение регулирует отношения между ТОО «ScoriFy Systems» (далее — «Компания») и пользователем сервиса ScoriFy (далее — «Пользователь»).</p>
+      
+      <h3>2. Описание услуг</h3>
+      <p>Сервис предоставляет следующие услуги:</p>
+      <ul>
+        <li>Автоматизированный кредитный скоринг</li>
+        <li>Проверка кредитной истории</li>
+        <li>Анализ платежеспособности</li>
+        <li>Формирование отчетов для банков</li>
+      </ul>
+      
+      <h3>3. Права и обязанности сторон</h3>
+      <p><strong>Пользователь обязуется:</strong></p>
+      <ul>
+        <li>Предоставлять достоверную информацию</li>
+        <li>Соблюдать законодательство РК</li>
+        <li>Не передавать доступ третьим лицам</li>
+        <li>Своевременно оплачивать услуги</li>
+      </ul>
+      
+      <p><strong>Компания обязуется:</strong></p>
+      <ul>
+        <li>Обеспечивать работоспособность сервиса</li>
+        <li>Защищать персональные данные</li>
+        <li>Предоставлять техническую поддержку</li>
+      </ul>
+      
+      <h3>4. Ограничение ответственности</h3>
+      <p>Компания не несет ответственности за решения, принятые на основе данных скоринга. Окончательное решение о выдаче кредита принимает банк.</p>
+      
+      <h3>5. Срок действия</h3>
+      <p>Соглашение вступает в силу с момента регистрации и действует бессрочно до расторжения одной из сторон.</p>
+    `
+  },
+  offer: {
+    title: "Публичная оферта",
+    content: `
+      <h3>1. Общие положения</h3>
+      <p>Настоящий документ является официальным предложением (публичной офертой) ТОО «ScoriFy Systems» заключить договор на оказание услуг кредитного скоринга.</p>
+      
+      <h3>2. Акцепт оферты</h3>
+      <p>Акцептом оферты является:</p>
+      <ul>
+        <li>Регистрация в системе ScoriFy</li>
+        <li>Оплата выбранного тарифа</li>
+        <li>Использование сервиса</li>
+      </ul>
+      
+      <h3>3. Стоимость и порядок оплаты</h3>
+      <p>Актуальные тарифы размещены на сайте в разделе «Тарифы». Оплата производится безналичным способом на расчетный счет Компании.</p>
+      
+      <h3>4. Предмет оферты</h3>
+      <p>Компания обязуется предоставить доступ к системе автоматизированного кредитного скоринга, включая:</p>
+      <ul>
+        <li>Проверку по базам ПКБ и ГКБ</li>
+        <li>Анализ кредитоспособности</li>
+        <li>Расчет долговой нагрузки</li>
+        <li>Формирование рекомендаций по банкам</li>
+      </ul>
+      
+      <h3>5. Гарантии и возврат</h3>
+      <p>Возврат средств возможен в течение 14 дней с момента оплаты, если услуга не была использована.</p>
+      
+      <h3>6. Реквизиты</h3>
+      <p>ТОО «ScoriFy Systems»<br/>
+      БИН: 123456789012<br/>
+      Адрес: г. Алматы, ул. Абая 150/230</p>
+    `
+  },
+  dataProcessing: {
+    title: "Обработка персональных данных",
+    content: `
+      <h3>1. Согласие на обработку</h3>
+      <p>Используя сервис ScoriFy, вы даете согласие на обработку персональных данных в соответствии с Законом РК «О персональных данных и их защите».</p>
+      
+      <h3>2. Категории обрабатываемых данных</h3>
+      <ul>
+        <li>Идентификационные данные (ФИО, ИИН)</li>
+        <li>Контактные данные (телефон, email)</li>
+        <li>Финансовые данные (кредитная история, доходы)</li>
+        <li>Технические данные (IP, cookies)</li>
+      </ul>
+      
+      <h3>3. Цели обработки</h3>
+      <ul>
+        <li>Оказание услуг кредитного скоринга</li>
+        <li>Идентификация пользователя</li>
+        <li>Исполнение договорных обязательств</li>
+        <li>Улучшение качества сервиса</li>
+        <li>Маркетинговые коммуникации (с согласия)</li>
+      </ul>
+      
+      <h3>4. Сроки хранения</h3>
+      <p>Персональные данные хранятся в течение срока действия договора и 5 лет после его прекращения в соответствии с требованиями законодательства.</p>
+      
+      <h3>5. Передача данных третьим лицам</h3>
+      <p>Данные могут передаваться:</p>
+      <ul>
+        <li>Кредитным бюро (ПКБ, ГКБ) для проверки</li>
+        <li>Банкам-партнерам (с согласия клиента)</li>
+        <li>Государственным органам по запросу</li>
+      </ul>
+      
+      <h3>6. Отзыв согласия</h3>
+      <p>Вы можете отозвать согласие на обработку персональных данных, направив запрос на info@scorify.kz. Отзыв согласия может привести к невозможности использования сервиса.</p>
+    `
+  }
+};
+
 export default function Footer() {
+  const [openModal, setOpenModal] = useState<string | null>(null);
+
   const navigationLinks = [
     { name: "О платформе", href: "#main" },
     { name: "Возможности", href: "#features" },
@@ -16,10 +182,10 @@ export default function Footer() {
   ];
 
   const legalLinks = [
-    { name: "Политика конфиденциальности", href: "/privacy", icon: Shield },
-    { name: "Пользовательское соглашение", href: "/terms", icon: FileText },
-    { name: "Публичная оферта", href: "/offer", icon: FileText },
-    { name: "Обработка персональных данных", href: "/data-processing", icon: Shield }
+    { name: "Политика конфиденциальности", key: "privacy", icon: Shield },
+    { name: "Пользовательское соглашение", key: "terms", icon: FileText },
+    { name: "Публичная оферта", key: "offer", icon: FileText },
+    { name: "Обработка персональных данных", key: "dataProcessing", icon: Shield }
   ];
 
   const socialLinks = [
@@ -169,14 +335,14 @@ export default function Footer() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
                   >
-                    <a
-                      href={link.href}
-                      className="group flex items-center gap-3 text-slate-300 hover:text-white transition-colors duration-200 text-sm"
+                    <button
+                      onClick={() => setOpenModal(link.key)}
+                      className="group flex items-center gap-3 text-slate-300 hover:text-white transition-colors duration-200 text-sm w-full text-left"
                     >
                       <IconComponent className="w-4 h-4 text-blue-400" />
                       <span>{link.name}</span>
                       <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
-                    </a>
+                    </button>
                   </motion.li>
                 );
               })}
@@ -355,6 +521,29 @@ export default function Footer() {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Legal Modals */}
+      {Object.entries(legalContent).map(([key, { title, content }]) => (
+        <Dialog key={key} open={openModal === key} onOpenChange={(open) => setOpenModal(open ? key : null)}>
+          <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto bg-slate-900 border-slate-700 text-white">
+            <DialogHeader>
+              <DialogTitle className="text-xl font-bold text-white">{title}</DialogTitle>
+              <DialogDescription className="text-slate-400">
+                ТОО «ScoriFy Systems» — Документ актуален на 2025 год
+              </DialogDescription>
+            </DialogHeader>
+            <div 
+              className="prose prose-invert prose-sm max-w-none mt-4
+                [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-white [&_h3]:mt-6 [&_h3]:mb-3
+                [&_p]:text-slate-300 [&_p]:leading-relaxed [&_p]:mb-3
+                [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-4 [&_ul]:text-slate-300
+                [&_li]:mb-1.5
+                [&_strong]:text-white [&_strong]:font-semibold"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+          </DialogContent>
+        </Dialog>
+      ))}
     </footer>
   );
 }

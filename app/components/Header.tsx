@@ -16,12 +16,18 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
       
-      const sections = ["hero", "about", "features", "how-it-works", "pricing", "faq", "contacts"];
+      // Если в самом верху страницы - показываем "О платформе" как активную
+      if (window.scrollY < 100) {
+        setActiveSection("main");
+        return;
+      }
+      
+      const sections = ["main", "features", "how-it-works", "pricing", "faq", "contacts"];
       const current = sections.find(section => {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          return rect.top <= 150 && rect.bottom >= 150;
         }
         return false;
       });
@@ -29,6 +35,9 @@ export default function Header() {
       if (current) setActiveSection(current);
     };
 
+    // Вызываем handleScroll при первой загрузке для установки начального состояния
+    handleScroll();
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
