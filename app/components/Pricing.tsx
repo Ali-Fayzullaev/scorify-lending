@@ -143,7 +143,7 @@ export default function Pricing() {
                       {[
                         { icon: Shield, text: "ЧСИ + БМГ + ПКБ + ГКБ + ЕНПФ" },
                         { icon: Target, text: "Подбор ипотечных программ" },
-                        { icon: Clock, text: "Полный отчёт за 2 минуты" },
+                        { icon: Clock, text: "Полный отчёт за 5 минуты" },
                         { icon: TrendingUp, text: "Сравнение условий банков" }
                       ].map((item, index) => (
                         <motion.div

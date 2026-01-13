@@ -37,7 +37,7 @@ export default function HowItWorks() {
       icon: Zap,
       color: "purple",
       gradient: "from-purple-500 to-violet-500",
-      time: "2 минуты"
+      time: "5 минуты"
     },
     {
       step: 4,

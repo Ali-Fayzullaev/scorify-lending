@@ -48,7 +48,7 @@ export default function Problem() {
     {
       icon: Shield,
       title: "Клиент получает ответ сразу",
-      description: "Результат скоринга готов через 2 минуты после заполнения",
+      description: "Результат скоринга готов через 5 минуты после заполнения",
       color: "text-green-500"
     },
     {
@@ -103,7 +103,7 @@ export default function Problem() {
           </motion.div>
           
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
-            Без <span className="text-red-500">ScoriFy</span> vs <span className="text-green-500">С</span> ScoriFy
+            <span className="text-green-500">С ScoriFy</span>  vs   <span className="text-red-500">Без ScoriFy</span> 
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Узнайте как мы превращаем сложные процессы в простые решения
@@ -112,6 +112,85 @@ export default function Problem() {
 
         {/* Comparison Grid */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-20">
+           {/* Solutions Column */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="sticky top-24">
+              <div className="mb-8">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-xl text-green-700 font-semibold mb-4">
+                  <Check className="w-4 h-4" />
+                  Решение ScoriFy
+                </div>
+                <h3 className="text-3xl font-bold text-slate-900 mb-3">
+                  Автоматизированная система
+                </h3>
+                <p className="text-slate-500">
+                  Умная технология делает всю работу за вас
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                {solutions.map((solution, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="group"
+                  >
+                    <Card className="relative overflow-hidden bg-gradient-to-b from-white to-green-50/30 border border-green-100 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+                      <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-1 h-3/4 bg-gradient-to-b from-green-500 to-green-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      <div className="p-5">
+                        <div className="flex items-start gap-4">
+                          <motion.div
+                            whileHover={{ rotate: -15, scale: 1.1 }}
+                            className="flex-shrink-0"
+                          >
+                            <div className="relative">
+                              <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center group-hover:bg-green-200 transition-colors duration-300">
+                                <solution.icon className={`w-7 h-7 ${solution.color}`} />
+                              </div>
+                              <div className="absolute -inset-1 bg-green-400/20 blur-md rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
+                          </motion.div>
+                          
+                          <div className="flex-1">
+                            <h4 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-green-600 transition-colors duration-200">
+                              {solution.title}
+                            </h4>
+                            <p className="text-slate-600 text-sm leading-relaxed">
+                              {solution.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Time Indicator - Solutions */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="mt-6"
+              >
+                <div className="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl p-6 text-center shadow-lg">
+                  <div className="text-4xl font-bold mb-2">5 минуты</div>
+                  <div className="text-green-100 text-sm font-medium">полный скоринг</div>
+                  <div className="text-green-200 text-xs mt-2">+ точность + уверенность</div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
           {/* Problems Column */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -191,161 +270,7 @@ export default function Problem() {
               </motion.div>
             </div>
           </motion.div>
-
-          {/* Solutions Column */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="sticky top-24">
-              <div className="mb-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-xl text-green-700 font-semibold mb-4">
-                  <Check className="w-4 h-4" />
-                  Решение ScoriFy
-                </div>
-                <h3 className="text-3xl font-bold text-slate-900 mb-3">
-                  Автоматизированная система
-                </h3>
-                <p className="text-slate-500">
-                  Умная технология делает всю работу за вас
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                {solutions.map((solution, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="group"
-                  >
-                    <Card className="relative overflow-hidden bg-gradient-to-b from-white to-green-50/30 border border-green-100 hover:border-green-200 hover:shadow-lg transition-all duration-300">
-                      <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-1 h-3/4 bg-gradient-to-b from-green-500 to-green-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      
-                      <div className="p-5">
-                        <div className="flex items-start gap-4">
-                          <motion.div
-                            whileHover={{ rotate: -15, scale: 1.1 }}
-                            className="flex-shrink-0"
-                          >
-                            <div className="relative">
-                              <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center group-hover:bg-green-200 transition-colors duration-300">
-                                <solution.icon className={`w-7 h-7 ${solution.color}`} />
-                              </div>
-                              <div className="absolute -inset-1 bg-green-400/20 blur-md rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            </div>
-                          </motion.div>
-                          
-                          <div className="flex-1">
-                            <h4 className="text-lg font-semibold text-slate-900 mb-2 group-hover:text-green-600 transition-colors duration-200">
-                              {solution.title}
-                            </h4>
-                            <p className="text-slate-600 text-sm leading-relaxed">
-                              {solution.description}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Time Indicator - Solutions */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="mt-6"
-              >
-                <div className="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-2xl p-6 text-center shadow-lg">
-                  <div className="text-4xl font-bold mb-2">2 минуты</div>
-                  <div className="text-green-100 text-sm font-medium">полный скоринг</div>
-                  <div className="text-green-200 text-xs mt-2">+ точность + уверенность</div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
         </div>
-
-        {/* Economy Calculator */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-4xl mx-auto"
-        >
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-cyan-500/5 rounded-3xl blur-xl" />
-            <div className="relative bg-gradient-to-br from-white to-blue-50 border border-blue-100 rounded-3xl p-8 lg:p-12 shadow-xl">
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-200 rounded-full text-blue-700 font-medium mb-4">
-                  <Zap className="w-4 h-4" />
-                  Экономия времени
-                </div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">
-                  <span className="text-blue-600">58 минут</span> экономии на клиенте
-                </h3>
-                <p className="text-slate-600 max-w-2xl mx-auto">
-                  Переведите эти минуты в дополнительные сделки и доход
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="text-center"
-                >
-                  <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
-                    15×
-                  </div>
-                  <div className="text-sm text-slate-600 font-medium">
-                    больше клиентов в день
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-center"
-                >
-                  <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-2">
-                    93%
-                  </div>
-                  <div className="text-sm text-slate-600 font-medium">
-                    экономия времени
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  className="text-center"
-                >
-                  <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent mb-2">
-                    100%
-                  </div>
-                  <div className="text-sm text-slate-600 font-medium">
-                    точность данных
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

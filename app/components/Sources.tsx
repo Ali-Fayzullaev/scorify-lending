@@ -20,7 +20,6 @@ export default function Sources() {
       features: ["Производства", "Должники ЧСИ", "Взыскания", "Исп. листы", "История"],
       color: "red",
       gradient: "from-red-500 to-rose-500",
-      stats: ["0", "Нет", "Чисто"]
     },
      {
       id: "bmg",
@@ -31,7 +30,6 @@ export default function Sources() {
       features: ["Подтверждение", "Telegram", "Контакты", "Мессенджеры", "Активность"],
       color: "indigo",
       gradient: "from-indigo-500 to-blue-500",
-      stats: ["✓", "Привязан", "Активен"]
     },
     {
       id: "pkb",
@@ -42,7 +40,6 @@ export default function Sources() {
       features: ["Производства", "Должники ЧСИ", "Взыскания", "Исп. листы", "История"],
       color: "blue",
       gradient: "from-blue-500 to-cyan-500",
-      stats: ["780", "4", "25M"]
     },
     {
       id: "gkb",
@@ -53,7 +50,6 @@ export default function Sources() {
       features: ["Статус банкротства", "Гос. долги", "Налоги", "Штрафы", "Статус должника"],
       color: "purple",
       gradient: "from-purple-500 to-violet-500",
-      stats: ["Нет", "0 ₸", "Чистый"]
     },
     
     {
@@ -65,7 +61,6 @@ export default function Sources() {
       features: ["Зарплата", "Стаж работы", "Трудоустройство", "Динамика доходов", "Налоги"],
       color: "green",
       gradient: "from-green-500 to-emerald-500",
-      stats: ["12 лет", "₸", "Стабильный"]
     },
    
   ];
@@ -193,15 +188,6 @@ export default function Sources() {
                     </div>
                   </div>
 
-                  {/* Quick Stats */}
-                  <div className="grid grid-cols-3 gap-3 mb-6">
-                    {sources[mobileSlide].stats.map((stat, idx) => (
-                      <div key={idx} className="bg-slate-50 rounded-lg p-3 text-center">
-                        <div className="text-lg font-bold text-slate-900">{stat}</div>
-                      </div>
-                    ))}
-                  </div>
-
                   {/* Features */}
                   <div className="space-y-3">
                     <h4 className="text-sm font-semibold text-slate-900">Что проверяем:</h4>
@@ -288,15 +274,6 @@ export default function Sources() {
                         {source.description}
                       </p>
 
-                      {/* Quick Stats */}
-                      <div className="flex flex-wrap gap-1 mb-2">
-                        {source.stats.slice(0, 2).map((stat, idx) => (
-                          <span key={idx} className="px-1.5 py-0.5 bg-slate-100 rounded text-[10px] font-medium text-slate-600">
-                            {stat}
-                          </span>
-                        ))}
-                      </div>
-
                       {/* Features */}
                       <div className="space-y-1">
                         {source.features.slice(0, 2).map((feature, idx) => (
@@ -322,58 +299,6 @@ export default function Sources() {
           </div>
         </div>
 
-        {/* Security Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-4xl mx-auto"
-        >
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-emerald-500/5 rounded-3xl blur-xl" />
-            
-            <div className="relative bg-gradient-to-br from-white to-green-50/30 border border-green-100/50 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-xl overflow-hidden">
-              <div className="flex flex-col lg:flex-row items-center gap-8">
-                <div className="flex-shrink-0">
-                  <div className="relative">
-                    <motion.div
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg"
-                    >
-                      <Shield className="w-10 h-10 text-white" />
-                    </motion.div>
-                  </div>
-                </div>
-
-                <div className="flex-1 text-center lg:text-left">
-                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-3">
-                    <span className="text-green-600">100% легально</span> и безопасно
-                  </h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    Все данные получаются с письменного согласия клиента по защищенным каналам связи в соответствии с законодательством РК
-                  </p>
-
-                  <div className="flex flex-wrap justify-center lg:justify-start gap-3">
-                    <div className="flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-200 rounded-full text-sm font-medium text-green-700">
-                      <Lock className="w-3 h-3" />
-                      Согласие клиента
-                    </div>
-                    <div className="flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-200 rounded-full text-sm font-medium text-green-700">
-                      <Zap className="w-3 h-3" />
-                      Защищенные каналы
-                    </div>
-                    <div className="flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-200 rounded-full text-sm font-medium text-green-700">
-                      <CheckCircle className="w-3 h-3" />
-                      Соответствие законам
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

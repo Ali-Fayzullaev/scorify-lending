@@ -26,7 +26,7 @@ export default function CTA() {
     {
       icon: Shield,
       title: "Гарантия результата",
-      description: "Результат за 2 минуты",
+      description: "Результат за 5 минуты",
       gradient: "from-blue-500 to-cyan-500"
     },
     {

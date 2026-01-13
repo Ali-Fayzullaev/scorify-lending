@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ScoriFy — Полный кредитный скоринг за 2 минуты | Казахстан",
+  title: "ScoriFy — Полный кредитный скоринг за 5 минуты | Казахстан",
   description: "Проверяем по 5 государственным базам + подбираем подходящие ипотечные программы из 50+ предложений банков Казахстана. Первые 5 скорингов бесплатно!",
   keywords: "кредитный скоринг, ипотечные программы, брокеры Казахстан, ПКБ, ЕНПФ, ГКБ, ЧСИ, БМГ, ScoriFy",
   authors: [{ name: "ScoriFy Team" }],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ru_KZ",
     url: "https://scorify.kz",
-    title: "ScoriFy — Полный кредитный скоринг за 2 минуты | Казахстан",
+    title: "ScoriFy — Полный кредитный скоринг за 5 минуты | Казахстан",
     description: "Проверяем по 5 государственным базам + подбираем подходящие ипотечные программы из 50+ предложений банков Казахстана. Первые 5 скорингов бесплатно!",
     siteName: "ScoriFy",
     images: [
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
         url: "https://scorify.kz/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "ScoriFy - Кредитный скоринг за 2 минуты",
+        alt: "ScoriFy - Кредитный скоринг за 5 минуты",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ScoriFy — Полный кредитный скоринг за 2 минуты | Казахстан",
+    title: "ScoriFy — Полный кредитный скоринг за 5 минуты | Казахстан",
     description: "Проверяем по 5 государственным базам + подбираем подходящие ипотечные программы из 50+ предложений банков Казахстана",
     images: ["https://scorify.kz/og-image.jpg"],
   },

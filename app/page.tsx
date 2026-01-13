@@ -22,10 +22,10 @@ export default function Home() {
         <Problem />
         <Sources />
         <Programs />
-        <HowItWorks />
+        {/* <HowItWorks /> */}
         <Pricing />
         <Benefits />
-        <Reviews />
+        {/* <Reviews /> */}
         <FAQ />
         <CTA />
       </main>
