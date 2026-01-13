@@ -109,7 +109,7 @@ export default function Hero() {
 
   return (
     <section
-      id="hero"
+      id="main"
       className="relative min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30 flex items-center justify-center overflow-hidden pb-10 md:pb-0"
     >
       {/* Animated Background */}

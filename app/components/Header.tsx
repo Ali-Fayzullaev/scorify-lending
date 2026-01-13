@@ -34,7 +34,7 @@ export default function Header() {
   }, []);
 
   const navigationItems = [
-    { name: "О платформе", href: "#about", icon: Home },
+    { name: "О платформе", href: "#main", icon: Home },
     { name: "Возможности", href: "#features", icon: BarChart3 },
     { name: "Как работает", href: "#how-it-works", icon: Zap },
     { name: "Тарифы", href: "#pricing", icon: CreditCard },
@@ -236,7 +236,7 @@ export default function Header() {
                   className="grid grid-cols-3 gap-4 mt-6"
                 >
                   {[
-                    { value: "2 мин", label: "Скоринг", color: "text-blue-600" },
+                    { value: "5 мин", label: "Скоринг", color: "text-blue-600" },
                     { value: "5 баз", label: "Проверка", color: "text-blue-600" },
                     { value: "500 ₸", label: "Стоимость", color: "text-emerald-600" }
                   ].map((stat, index) => (

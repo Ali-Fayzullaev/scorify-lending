@@ -60,7 +60,7 @@ export default function Problem() {
   ];
 
   return (
-    <section id="problem" className="py-20 lg:py-32 bg-gradient-to-b from-white to-slate-50/50 overflow-hidden">
+    <section id="features" className="py-20 lg:py-32 bg-gradient-to-b from-white to-slate-50/50 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div

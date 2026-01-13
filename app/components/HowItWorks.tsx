@@ -52,7 +52,7 @@ export default function HowItWorks() {
   ];
 
   const stats = [
-    { icon: Clock, value: "2 мин", label: "полный скоринг", color: "text-blue-600" },
+    { icon: Clock, value: "5 мин", label: "полный скоринг", color: "text-blue-600" },
     { icon: Database, value: "5 баз", label: "государственных источников", color: "text-green-600" },
     { icon: Users, value: "50+", label: "брокеров используют", color: "text-purple-600" },
     { icon: Shield, value: "100%", label: "легальность проверки", color: "text-amber-600" }

@@ -41,7 +41,7 @@ export default function CTA() {
     { number: "93%", label: "экономии времени", icon: TrendingUp },
     { number: "15×", label: "больше клиентов", icon: Target },
     { number: "500₸", label: "стоимость скоринга", icon: Zap },
-    { number: "2 мин", label: "время отчёта", icon: CheckCircle }
+    { number: "5 мин", label: "время отчёта", icon: CheckCircle }
   ];
 
   const contactOptions = [

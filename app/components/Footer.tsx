@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Footer() {
   const navigationLinks = [
-    { name: "О платформе", href: "#about" },
+    { name: "О платформе", href: "#main" },
     { name: "Возможности", href: "#features" },
     { name: "Как работает", href: "#how-it-works" },
     { name: "Тарифы", href: "#pricing" },
@@ -31,7 +31,7 @@ export default function Footer() {
 
   const quickStats = [
     { icon: Users, value: "50+", label: "активных брокеров", color: "text-blue-400" },
-    { icon: Zap, value: "2 мин", label: "среднее время скоринга", color: "text-emerald-400" },
+    { icon: Zap, value: "5 мин", label: "среднее время скоринга", color: "text-emerald-400" },
     { icon: Clock, value: "24/7", label: "доступность системы", color: "text-amber-400" },
     { icon: Shield, value: "100%", label: "законность проверки", color: "text-purple-400" }
   ];

@@ -74,7 +74,7 @@ export default function Sources() {
   };
 
   return (
-    <section id="sources" className="relative py-20 lg:py-32 overflow-hidden">
+    <section id="how-it-works" className="relative py-20 lg:py-32 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-blue-50/30" />
       
