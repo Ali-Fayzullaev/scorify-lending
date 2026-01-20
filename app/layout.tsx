@@ -40,7 +40,11 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "Dif8ORhksjpV-_9-DZ87cI3xDZrxvGf1IC1wfTqAQ9k",
-    yandex: "your-yandex-verification-code",
+  },
+  other: {
+    "yandex-verification": "подтверждено через DNS",
+    // Разрешаем Яндексу переводить страницу
+    "yandex-translate": "yes",
   },
 };
 
