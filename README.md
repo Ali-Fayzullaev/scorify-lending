@@ -168,7 +168,7 @@ npx vercel --prod
 ## 📞 Контакты
 
 Для вопросов по разработке или технической поддержке:
-- Email: support@scorify.kz
+- Email: scorifyskoring@gmail.com
 - Telegram: @scorify_support
 
 ## 📄 Лицензия

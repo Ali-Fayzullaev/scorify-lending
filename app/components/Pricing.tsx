@@ -9,7 +9,7 @@ export default function Pricing() {
     {
       type: "Физические лица",
       model: "Предоплата",
-      minimum: "От 500 ₸",
+      minimum: "От 1490₸",
       payment: "Пополнение баланса",
       icon: Users,
       gradient: "from-blue-500 to-cyan-500",
@@ -83,7 +83,7 @@ export default function Pricing() {
           
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
             <span className="text-slate-800">Просто</span>
-            <span className="text-blue-600 mx-2">500 ₸</span>
+            <span className="text-blue-600 mx-2">1490₸</span>
             <span className="text-slate-800">за скоринг</span>
           </h2>
           
@@ -126,7 +126,7 @@ export default function Pricing() {
                       className="inline-block"
                     >
                       <div className="text-7xl lg:text-8xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-2">
-                        500₸
+                        1490₸
                       </div>
                       <div className="text-lg text-slate-600 mb-6">за один скоринг</div>
                       

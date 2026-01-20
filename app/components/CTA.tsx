@@ -40,13 +40,13 @@ export default function CTA() {
   const stats = [
     { number: "93%", label: "экономии времени", icon: TrendingUp },
     { number: "15×", label: "больше клиентов", icon: Target },
-    { number: "500₸", label: "стоимость скоринга", icon: Zap },
+    { number: "1490₸", label: "стоимость скоринга", icon: Zap },
     { number: "5 мин", label: "время отчёта", icon: CheckCircle }
   ];
 
   const contactOptions = [
     { icon: MessageSquare, label: "WhatsApp", href: "https://wa.me/77777777777", color: "bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600" },
-    { icon: Mail, label: "Email", href: "mailto:info@scorify.kz", color: "bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600" },
+    { icon: Mail, label: "Email", href: "mailto:scorifyskoring@gmail.com", color: "bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600" },
     { icon: Phone, label: "Телефон", href: "tel:+77777777777", color: "bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600" }
   ];
 

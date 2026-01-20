@@ -236,25 +236,6 @@ export default function Header() {
                     <X className="w-6 h-6" />
                   </motion.button>
                 </div>
-                
-                {/* Quick Stats */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                  className="grid grid-cols-3 gap-4 mt-6"
-                >
-                  {[
-                    { value: "5 мин", label: "Скоринг", color: "text-blue-600" },
-                    { value: "5 баз", label: "Проверка", color: "text-blue-600" },
-                    { value: "500 ₸", label: "Стоимость", color: "text-emerald-600" }
-                  ].map((stat, index) => (
-                    <div key={index} className="text-center">
-                      <div className={`text-lg font-bold ${stat.color}`}>{stat.value}</div>
-                      <div className="text-xs text-slate-500">{stat.label}</div>
-                    </div>
-                  ))}
-                </motion.div>
               </div>
 
               {/* Mobile Navigation */}
@@ -347,8 +328,7 @@ export default function Header() {
                   <div className="space-y-3">
                     {[
                       { icon: Phone, text: "+7 (777) 777-77-77", href: "tel:+77777777777", color: "text-blue-600" },
-                      { icon: Mail, text: "info@scorify.kz", href: "mailto:info@scorify.kz", color: "text-blue-600" },
-                      { icon: MessageSquare, text: "@scorify_kz", href: "https://t.me/scorify_kz", color: "text-blue-600" }
+                      { icon: Mail, text: "scorifyskoring@gmail.com", href: "mailto:scorifyskoring@gmail.com", color: "text-blue-600" },
                     ].map((contact, index) => {
                       const IconComponent = contact.icon;
                       return (

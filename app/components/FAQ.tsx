@@ -286,7 +286,7 @@ export default function FAQ() {
                 {/* Contact Methods */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                   <motion.a
-                    href="mailto:support@scorify.kz"
+                    href="mailto:scorifyskoring@gmail.com"
                     whileHover={{ scale: 1.02 }}
                     className="group"
                   >
@@ -297,7 +297,7 @@ export default function FAQ() {
                         </div>
                         <div className="text-left">
                           <div className="font-semibold text-slate-900">Email поддержка</div>
-                          <div className="text-sm text-slate-600">support@scorify.kz</div>
+                          <div className="text-sm text-slate-600">scorifyskoring@gmail.com</div>
                         </div>
                       </div>
                     </Card>

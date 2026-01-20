@@ -53,14 +53,14 @@ const legalContent = {
       </ul>
       
       <h3>6. Контакты</h3>
-      <p>По вопросам конфиденциальности: info@scorify.kz</p>
+      <p>По вопросам конфиденциальности: scorifyskoring@gmail.com</p>
     `
   },
   terms: {
     title: "Пользовательское соглашение",
     content: `
       <h3>1. Предмет соглашения</h3>
-      <p>Настоящее Соглашение регулирует отношения между ТОО «ScoriFy Systems» (далее — «Компания») и пользователем сервиса ScoriFy (далее — «Пользователь»).</p>
+      <p>Настоящее Соглашение регулирует отношения между ТОО «SCORIFY» (далее — «Компания») и пользователем сервиса ScoriFy (далее — «Пользователь»).</p>
       
       <h3>2. Описание услуг</h3>
       <p>Сервис предоставляет следующие услуги:</p>
@@ -98,7 +98,7 @@ const legalContent = {
     title: "Публичная оферта",
     content: `
       <h3>1. Общие положения</h3>
-      <p>Настоящий документ является официальным предложением (публичной офертой) ТОО «ScoriFy Systems» заключить договор на оказание услуг кредитного скоринга.</p>
+      <p>Настоящий документ является официальным предложением (публичной офертой) ТОО «SCORIFY» заключить договор на оказание услуг кредитного скоринга.</p>
       
       <h3>2. Акцепт оферты</h3>
       <p>Акцептом оферты является:</p>
@@ -124,9 +124,13 @@ const legalContent = {
       <p>Возврат средств возможен в течение 14 дней с момента оплаты, если услуга не была использована.</p>
       
       <h3>6. Реквизиты</h3>
-      <p>ТОО «ScoriFy Systems»<br/>
-      БИН: 123456789012<br/>
-      Адрес: г. Алматы, ул. Абая 150/230</p>
+      <p>ТОО «SCORIFY»<br/>
+      БИН: 251240018072<br/>
+      Адрес: г. Астана, ул. Түркістан, д. 16<br/>
+      Банк: АО "Kaspi Bank"<br/>
+      БИК: CASPKZKA<br/>
+      КБе: 17<br/>
+      Номер счета: KZ56722S000050572306</p>
     `
   },
   dataProcessing: {
@@ -164,7 +168,7 @@ const legalContent = {
       </ul>
       
       <h3>6. Отзыв согласия</h3>
-      <p>Вы можете отозвать согласие на обработку персональных данных, направив запрос на info@scorify.kz. Отзыв согласия может привести к невозможности использования сервиса.</p>
+      <p>Вы можете отозвать согласие на обработку персональных данных, направив запрос на scorifyskoring@gmail.com. Отзыв согласия может привести к невозможности использования сервиса.</p>
     `
   }
 };
@@ -361,7 +365,7 @@ export default function Footer() {
             
             <div className="space-y-4 mb-8">
               <motion.a
-                href="mailto:info@scorify.kz"
+                href="mailto:scorifyskoring@gmail.com"
                 whileHover={{ x: 5 }}
                 className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group"
               >
@@ -370,7 +374,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <div className="text-sm font-medium">Email</div>
-                  <div className="text-xs text-slate-400 group-hover:text-slate-300">info@scorify.kz</div>
+                  <div className="text-xs text-slate-400 group-hover:text-slate-300">scorifyskoring@gmail.com</div>
                 </div>
               </motion.a>
 
@@ -397,7 +401,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <div className="text-sm font-medium">Адрес</div>
-                  <div className="text-xs text-slate-400">Алматы, Абая 150/230</div>
+                  <div className="text-xs text-slate-400">Астана, Түркістан 16</div>
                 </div>
               </motion.div>
             </div>
@@ -467,8 +471,8 @@ export default function Footer() {
                 <Building className="w-5 h-5 text-purple-400" />
                 <h4 className="font-semibold text-white">Регистрация</h4>
               </div>
-              <p className="text-slate-300 text-sm">ТОО "ScoriFy Systems"</p>
-              <p className="text-xs text-slate-400 mt-1">БИН: 123456789012</p>
+              <p className="text-slate-300 text-sm">ТОО "SCORIFY"</p>
+              <p className="text-xs text-slate-400 mt-1">БИН: 251240018072</p>
             </div>
           </div>
         </motion.div>

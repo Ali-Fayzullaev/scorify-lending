@@ -64,7 +64,7 @@ export default function Hero() {
       icon: <BarChart3 className="w-5 h-5" />,
     },
     {
-      number: "500",
+      number: "1490",
       label: "тенге за проверку",
       suffix: " ₸",
       icon: <TrendingUp className="w-5 h-5" />,
